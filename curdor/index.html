@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            cursor: none;
+            overflow: hidden; 
+        }
+        .custom-cursor {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(17, 255, 0);
+            position: absolute;
+            z-index: 9999; 
+            pointer-events: none; 
+            transition: transform 0.1s ease; /
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+
+    <script>
+        $(document).ready(function(){
+            
+            $(document).on('mousemove', function(e){
+                $('.custom-cursor').css({
+                    left: e.pageX - 10, 
+                    top: e.pageY - 10
+                });
+            });
+        });
+    </script>
+</body>
+</html>
